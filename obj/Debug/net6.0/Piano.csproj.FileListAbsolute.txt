@@ -1,0 +1,14 @@
+C:\Users\efimb\source\repos\Piano\bin\Debug\net6.0\Piano.exe
+C:\Users\efimb\source\repos\Piano\bin\Debug\net6.0\Piano.deps.json
+C:\Users\efimb\source\repos\Piano\bin\Debug\net6.0\Piano.runtimeconfig.json
+C:\Users\efimb\source\repos\Piano\bin\Debug\net6.0\Piano.dll
+C:\Users\efimb\source\repos\Piano\bin\Debug\net6.0\Piano.pdb
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\Piano.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\Piano.AssemblyInfoInputs.cache
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\Piano.AssemblyInfo.cs
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\Piano.csproj.CoreCompileInputs.cache
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\Piano.dll
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\refint\Piano.dll
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\Piano.pdb
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\Piano.genruntimeconfig.cache
+C:\Users\efimb\source\repos\Piano\obj\Debug\net6.0\ref\Piano.dll
