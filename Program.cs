@@ -1,68 +1,137 @@
-﻿namespace Piano
+﻿using System;
+using System.Media;
+
+namespace пианино
 {
-    internal class Program
+    
+    internal class PlayPiano
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Переключение октавы F5-F8");
-            int[] octave = Change_octave(ConsoleKey.F12, null);
+            Console.WriteLine("Переключение между октавами F2 и F4.");
             while (true)
             {
-                ConsoleKeyInfo klavisha = Console.ReadKey(true);
-                octave = Change_octave(klavisha.Key, octave);
-                Notes(octave, klavisha);
-                if (klavisha.Key == ConsoleKey.F12)
-                { break; }
+                ConsoleKeyInfo change = Console.ReadKey();
+                switch (change.Key)
+                {
+                    case ConsoleKey.F2:
+                        int[] O2 = new int[] { 524, 555, 587, 623, 660, 699, 740, 784, 831, 880, 933, 988 };
+                        Octave("Вторая октава", O2);
+                        break;
+
+                    case ConsoleKey.F4:
+                        int[] O4 = new int[] { 2093, 2217, 2349, 2489, 2637, 2794, 2960, 3136, 3333, 3440, 3729, 3951 };
+                        Octave("Четверая октава", O4);
+                        break;
+
+                    case ConsoleKey.Escape:
+                        Environment.Exit(0);
+                        break;
+
+                    default:
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Ошибка, повторите попытку");
+                        }
+                        break;
+                }
             }
         }
-        static int[] Change_octave(ConsoleKey klavisha, int[]?octave)
+        
+
+        static void Octave(string octave, int[] current_octaves)
         {
-            int[] fifth_octave = new int[] {523, 554, 587, 622, 659, 698, 740, 784, 830, 880, 932, 987};
-            int[] sixth_octave = new int[] {1047, 1109, 1175, 1245, 1319, 1397, 1480, 1568, 1661, 1760, 1865, 1978};
-            int[] seventh_octave = new int[] {2093, 2217, 2349, 2489, 2637, 2794, 2960, 3136, 3322, 3520, 3729, 3951};
-            int[] eight_octave = new int[] {4186, 4435, 4699, 4978, 5274, 5588, 5920, 6272, 6645, 7040, 7459, 7902};
-            switch (klavisha) 
+            int duration = 200;
+            Console.Clear();
+            Console.WriteLine(octave);
+            Console.WriteLine("Чтобы выйти из этой октавы нажмите Enter, выберите октаву или выйдете из программы, нажав на Escape ");
+            ConsoleKeyInfo key;
+            while (true)
             {
-                case ConsoleKey.F5: 
-                    { return fifth_octave; }
-                case ConsoleKey.F6: 
-                    { return sixth_octave; }
-                case ConsoleKey.F7: 
-                    { return seventh_octave; }
-                case ConsoleKey.F8: 
-                    { return eight_octave; }
-                default: return octave;
+                key = Console.ReadKey();
+                if (key.Key == ConsoleKey.Q)
+                {
+                    Sound(current_octaves[0], duration);
+
+                }
+                else if (key.Key == ConsoleKey.W)
+                {
+                    Sound(current_octaves[1], duration);
+
+                }
+                else if (key.Key == ConsoleKey.E)
+                {
+                    Sound(current_octaves[2], duration);
+
+                }
+                else if (key.Key == ConsoleKey.R)
+                {
+                    Sound(current_octaves[3], duration);
+
+                }
+                else if (key.Key == ConsoleKey.T)
+                {
+                    Sound(  current_octaves[4], duration);
+
+                }
+                else if (key.Key == ConsoleKey.Y)
+                {
+                    Sound(current_octaves[5], duration);
+
+                }
+                else if (key.Key == ConsoleKey.A)
+                {
+                    Sound(current_octaves[6], duration);
+
+                }
+                else if (key.Key == ConsoleKey.S)
+                {
+                    Sound(current_octaves[7], duration);
+
+                }
+                else if (key.Key == ConsoleKey.D)
+                {
+                    Sound(current_octaves[8], duration );
+
+                }
+                else if (key.Key == ConsoleKey.F)
+                {
+                    Sound(current_octaves[9], duration);
+
+                }
+                else if (key.Key == ConsoleKey.G)
+                {
+                    Sound(current_octaves[10], duration);
+                }
+                else if (key.Key == ConsoleKey.H)
+                {
+                    Sound(current_octaves[11], duration);
+                }
+                else if (key.Key == ConsoleKey.Enter)
+                {
+                    Main();
+                }
+                else if (key.Key == ConsoleKey.Escape)
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.Write("Неверная клавиша!");
+                    Console.WriteLine("Используемые клавиши пианино:");
+                    Console.WriteLine("R, T, Y, U, I");
+                    Console.WriteLine("D, F, G, H, J, K, L");
+                }
             }
         }
-        static void Notes(int[]? octave, ConsoleKeyInfo klavisha) 
+
+
+        static void Sound(int frequency, int duration, string text = "")
         {
-            switch (klavisha.Key) 
-            {
-                case ConsoleKey.Q: 
-                    { Console.Beep(octave[0], 120); break; }
-                case ConsoleKey.W:
-                    { Console.Beep(octave[1], 120); break; }
-                case ConsoleKey.E:
-                    { Console.Beep(octave[2], 120); break; }
-                case ConsoleKey.R:
-                    { Console.Beep(octave[3], 120); break; }
-                case ConsoleKey.T:
-                    { Console.Beep(octave[4], 120); break; }
-                case ConsoleKey.Y:
-                    { Console.Beep(octave[5], 120); break; }
-                case ConsoleKey.U:
-                    { Console.Beep(octave[6], 120); break; }
-                case ConsoleKey.I:
-                    { Console.Beep(octave[7], 120); break; }
-                case ConsoleKey.O:
-                    { Console.Beep(octave[8], 120); break; }
-                case ConsoleKey.P:
-                    { Console.Beep(octave[9], 120); break; }
-                case ConsoleKey.A:
-                    { Console.Beep(octave[10], 120); break; }
-                case ConsoleKey.S:
-                    { Console.Beep(octave[11], 120); break; }
-            }
+            Console.Clear();
+            Console.Beep(frequency: frequency, duration);
+            Console.WriteLine(text);
         }
     }
 }
