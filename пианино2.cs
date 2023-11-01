@@ -1,5 +1,4 @@
-﻿using System;
-using System.Media;
+using System;
 
 namespace пианино
 {
@@ -48,7 +47,7 @@ namespace пианино
             ConsoleKeyInfo key;
             while (true)
             {
-                key = Console.ReadKey();
+                key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.Q)
                 {
                     Sound(current_octaves[0], duration);
@@ -127,11 +126,9 @@ namespace пианино
         }
 
 
-        static void Sound(int frequency, int duration, string text = "")
+        static void Sound(int frequency, int duration)
         {
-            Console.Clear();
             Console.Beep(frequency: frequency, duration);
-            Console.WriteLine(text);
         }
     }
 }
